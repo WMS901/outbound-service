@@ -3,7 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const outboundRoutes = require('./src/routes/outbound.routes');
-require('./src/config/kafka'); 
 require('./src/service/kafka.consumer.service');
 const app = express();
 const PORT = `${process.env.SERVER_PORT}`;
