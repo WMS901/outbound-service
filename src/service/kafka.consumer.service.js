@@ -1,4 +1,4 @@
-const { consumer } = require("./kafka");
+const { consumer } = require("../config/kafka");
 const { createOutboundItem } = require("../service/outbound.service");
 
 const run = async () => {

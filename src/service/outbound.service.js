@@ -1,3 +1,4 @@
+const { consumer } = require("../config/kafka");
 const OutboundRepository = require('../repository/outbound.repository');
 const { generateOutboundId } = require('../utils/id-generator');
 
