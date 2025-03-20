@@ -4,7 +4,7 @@ async function createOutboundItem(data) {
   try {
     console.log("📌 [Repository] MongoDB 저장 시작, 데이터:", data);
 
-    const newItem = new OutboundModel({
+    const newItem = new OutboundItem({
       ...data,
       confirmed: false,  // 출고 확정 여부 기본값 설정
     });
