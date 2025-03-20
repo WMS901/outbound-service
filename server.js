@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const outboundRoutes = require('./src/routes/outbound.routes');
-require('./config/kafka'); 
+require('./src/config/kafka'); 
 const app = express();
 const PORT = `${process.env.SERVER_PORT}`;
 const mongoURI = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?authSource=${process.env.MONGO_AUTH_DB}`;
