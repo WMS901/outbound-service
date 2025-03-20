@@ -1,7 +1,22 @@
 const OutboundItem = require('../models/outbound.model');
 
 async function createOutboundItem(data) {
-  return await OutboundItem.create(data);
+  try {
+    console.log("📌 [Repository] MongoDB 저장 시작, 데이터:", data);
+
+    const newItem = new OutboundModel({
+      ...data,
+      confirmed: false,  // 출고 확정 여부 기본값 설정
+    });
+
+    const savedItem = await newItem.save();
+
+    console.log("✅ [Repository] MongoDB 저장 성공:", savedItem);
+    return savedItem;
+  } catch (error) {
+    console.error("❌ [Repository] MongoDB 저장 실패:", error);
+    throw error;
+  }
 }
 
 async function getAllOutboundItems() {

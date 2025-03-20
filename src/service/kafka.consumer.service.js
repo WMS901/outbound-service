@@ -1,5 +1,5 @@
 const { consumer } = require("./kafka");
-const { createOutboundItem } = require("../service/outbound.service"); // 직접 서비스 호출
+const { createOutboundItem } = require("../service/outbound.service");
 
 const run = async () => {
   await consumer.connect();
@@ -11,7 +11,9 @@ const run = async () => {
         const data = JSON.parse(message.value.toString());
         console.log("📦 출고 데이터 수신:", data);
 
-        // ✅ 출고 데이터 생성 (서비스 직접 호출)
+        // 🛠️ 디버깅 로그 추가
+        console.log("🛠️ MongoDB 저장 요청 시작");
+
         const outboundItem = await createOutboundItem({
           name: data.name,
           category: data.category,
