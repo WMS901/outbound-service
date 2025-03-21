@@ -7,4 +7,4 @@ const kafka = new Kafka({
 
 const consumer = kafka.consumer({ groupId: "outbound-group" });
 
-module.exports = { consumer }; // ✅ 여기서만 export
+module.exports = { consumer };
