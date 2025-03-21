@@ -24,8 +24,9 @@ app.use(cors({
     }
   },
   credentials: true, // ✅ 인증 관련 요청 허용
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Authorization", "Content-Type"],
-  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"]
+  exposedHeaders: ["Authorization"] // ✅ 클라이언트에서 Authorization 헤더 읽을 수 있도록 추가
 }));
 
 app.use(express.json());
