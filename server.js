@@ -1,4 +1,3 @@
-require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
@@ -6,7 +5,7 @@ const outboundRoutes = require('./src/routes/outbound.routes');
 require('./src/service/kafka.consumer.service');
 
 const app = express();
-const PORT = `${process.env.SERVER_PORT}`;
+const PORT = process.env.SERVER_PORT;
 const mongoURI = `mongodb://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@${process.env.MONGO_HOST}:${process.env.MONGO_PORT}/${process.env.MONGO_DB}?authSource=${process.env.MONGO_AUTH_DB}`;
 
 const corsOptions = {
@@ -18,8 +17,10 @@ const corsOptions = {
 };
 
 app.use(cors(corsOptions));
-
 app.use(express.json());
+
+// ✅ Preflight 요청 직접 처리
+app.options('*', cors(corsOptions));
 
 app.use('/api/outbound', outboundRoutes);
 
