@@ -2,7 +2,7 @@ const { Kafka } = require("kafkajs");
 
 const kafka = new Kafka({
   clientId: "outbound-service",
-  brokers: ["my-cluster-kafka-bootstrap.kafka.svc.cluster.local:9092"],
+  brokers: [process.env.KAFKA_BROKER],
 });
 
 const consumer = kafka.consumer({ groupId: "outbound-group" });

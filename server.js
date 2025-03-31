@@ -21,6 +21,9 @@ app.use(express.json());
 
 // ✅ Preflight 요청 직접 처리
 // app.options('*', cors(corsOptions));
+app.get('/actuator/health', (req, res) => {
+  res.status(200).json({ status: 'UP' });
+});
 
 app.use('/api/outbound', outboundRoutes);
 
