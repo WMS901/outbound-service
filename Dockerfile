@@ -7,4 +7,6 @@ RUN npm install --omit=dev
 
 COPY . .
 
+EXPOSE 1051
+
 CMD ["npm", "start"]
