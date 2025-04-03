@@ -2,6 +2,7 @@ const { consumer } = require("../config/kafka");
 const { createOutboundItem } = require("../service/outbound.service");
 
 const run = async () => {
+  console.log("✅ Kafka Consumer 시작됨");
   await consumer.connect();
   await consumer.subscribe({ topic: "inventory-updated", fromBeginning: true });
 
