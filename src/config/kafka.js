@@ -6,5 +6,6 @@ const kafka = new Kafka({
 });
 
 const consumer = kafka.consumer({ groupId: "outbound-group" });
+const producer = kafka.producer();
 
-module.exports = { consumer };
+module.exports = { consumer, producer};
