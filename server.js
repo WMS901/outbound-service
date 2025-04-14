@@ -25,7 +25,7 @@ app.use('/api/outbound', outboundRoutes);
 
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
-    console.log('✅ MongoDB Connected Successfully');
-    app.listen(PORT, () => console.log(`🚀 Server running on http://localhost:${PORT}`));
+    console.log('MongoDB Connected Successfully');
+    app.listen(PORT, () => console.log(`🌟🌟🌟 Server running on http://localhost:${PORT}`));
   })
-  .catch(err => console.error('❌ MongoDB Connection Failed:', err));
+  .catch(err => console.error('MongoDB Connection Failed:', err));
